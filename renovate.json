@@ -1,6 +1,35 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended"
-  ]
+  ],
+  "dependencyDashboard": true,
+  "packageRules": [
+    {
+      "groupName": "symfony packages",
+      "schedule": [
+        "before 4pm"
+      ],
+      "matchManagers": [
+        "composer"
+      ],
+      "rangeStrategy": "update-lockfile",
+      "matchPackageNames": [
+        "/^symfony//"
+      ]
+    },
+    {
+      "groupName": "testing",
+      "schedule": [
+        "monthly"
+      ],
+      "matchPackageNames": [
+        "/^phpunit/phpunit/"
+      ]
+    }
+  ],
+  "timezone": "Europe/Berlin",
+  "labels": [
+    "dependencies"
+  ],
+  "commitMessagePrefix": "chore(deps):"
 }
